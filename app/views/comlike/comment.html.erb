@@ -1,0 +1,7 @@
+<h1>YOUR COMMENT FOR <%= @track.title %></h1>
+  <%= form_tag you_post_path, :method => "post" do %>
+     <input type="text" name="comment3" value="<%= @cm %>"/>
+     <button type="submit" name="pcomment" value="<%= @url %>">
+        POST COMMENT
+     </button>
+  <% end %>

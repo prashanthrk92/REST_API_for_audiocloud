@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Uploading File</title>
+</head>
+<body>
+<h1>File Upload</h1>
+<%= form_tag({:action => :upload}, :multipart => true) do %>
+<p> <label><b>TITLE</b></label>
+	<input type="text" name="title"/>
+	</br>
+    </br>
+	<label for="upload_file"><b>SELECT FILE</b></label>
+	<!--<input type="file" name="upload" accept="audio/mp3"> -->
+	<%= file_field_tag 'upload' , :accept => "audio/mp3" %>
+	<div id="progressbar">
+	<input type="submit" value="upload" />
+	</div>
+<%end%>
+</body>
+</html>

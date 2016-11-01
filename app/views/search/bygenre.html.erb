@@ -1,0 +1,10 @@
+<h1>Top 10 Tracks under <%= @genre %></h1>
+<p>
+	<ul>
+    <% @genretracks.each do |track| %>
+      <li>
+      	<%= link_to track.title, track.permalink_url %>
+      </li>
+    <% end %>
+  </ul>
+</p>

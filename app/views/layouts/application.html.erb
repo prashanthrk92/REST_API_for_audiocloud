@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MUSIC CLOUD</title>
+  <!--<script src="http://connect.soundcloud.com/base.js"></script>-->
+  <%= stylesheet_link_tag 'application', 'soundcloud' %>
+  <%= javascript_include_tag 'jquery-1.5.min', 'connect', 'application' %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div class="wrapper container">
+    <h1 class="header">WELCOME TO MUSIC CLOUD</h1>
+    <%= yield %>
+  </div>
+</body>
+</html>

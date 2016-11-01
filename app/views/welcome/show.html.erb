@@ -1,0 +1,149 @@
+<div class="infos">
+  <div class="details">
+    <b>Your SoundCloud User Infos:</b>
+    <hr/>
+    <br />
+    <br />
+    <ul>
+      <li>Username: <%= @me.username %></li>
+      <li>Fullname: <%= @me.full_name %></li>
+      <li>Location: <%= @me.city %>, <%= @me.country %></li>
+    </ul> 
+    
+   
+    
+    
+
+  </div>
+  <%= image_tag(@me.avatar_url, :class => "avatar") %>
+  </div>
+  <hr/>
+    <br />
+    <br />
+  <div class="description"> 
+    <b>Description:</b>
+    <br />
+    <br />
+    <%= form_tag you_update_path, :method => "post" do %>
+    <textarea name="description"><%= @me.description %></textarea>
+    <input type="submit" value="update" />
+    <span class="warning">this will change your SoundCloud profile description!</span>
+    <% end %>
+    </div>
+    <hr/>
+</br>
+</br>
+<b>SEARCH MUSIC CLOUD</b> 
+</br>
+</br>
+<b>By User</b>
+<%= form_tag you_searchuser_path, :method => "post" do %>
+    <input type="text" name="user_name"/>
+    <input type="submit" value="search tracks" />
+<% end %>
+
+</br>
+</br>
+<b>By Genre</b> 
+<%= form_tag you_searchgenre_path, :method => "post" do %>
+  <label>GENRE:</label>
+  <select name="genre">
+  <option value="rock">ROCK</option>
+  <option value="pop">POP</option>
+  <option value="jazz">JAZZ</option>
+  <option value="classical">CLASSICAL</option>
+  </select>
+    <label>BPM:</label>
+    <input type="text" name="bpm"/>
+    <input type="submit" value="search tracks" />
+<% end %> 
+<hr/> 
+</br>
+</br>
+    <b>Followings</b>
+    </br>
+    </br>
+    <%= form_tag you_follow_path, :method => "post" do %>
+    <label>USER NAME:</label>
+    <input type="text" name="user_name"/>
+    <input type="submit" value="follow user" />
+    <% end %>
+    <%= form_tag you_unfollow_path, :method => "post" do %>
+    <label>USER NAME:</label>
+    <input type="text" name="user_name"/>
+    <input type="submit" value="unfollow user" />
+    <% end %>
+    </br>
+    </br>
+    <hr/>
+    <b>Your recent followings</b>
+    <ul>
+    <% @fol.each do |fl| %>
+      <li>
+      	<%= fl.username %>
+      </li>
+    <% end %>
+  </ul>
+  <hr/>
+  </br>
+    </br>
+    <b>Your recent followers</b>
+    <ul>
+    <% @fols.each do |fls| %>
+      <li>
+      	<%= fls.username %>
+      </li>
+    <% end %>
+  </ul>
+<hr/>   
+</br>
+</br>   
+    <b>Upload Sound</b>
+    <a href="you/upload">Click me!!!</a>
+    <hr/>
+</br>
+</br>
+
+<div class="tracks">
+  <b>Your 5 latest tracks</b>
+  </br>
+</br> 
+  <ul>
+    <% @tracks.each do |track| %>
+      <li>
+      	<%= form_tag you_download_path, :method => "post" do %>
+      	<%= link_to track.title, track.permalink_url %>
+      	<button type="submit" name="download" value="<%= track.id %>">
+        DOWNLOAD
+        </button>
+        <% end %>
+        <%= form_tag you_like_path, :method => "post" do %>
+      	<button type="submit" name="like" value="<%= track.id %>">
+        LIKE
+        </button>
+        <% end %>
+        <%= form_tag you_comment_path, :method => "post" do %>
+      	<button type="submit" name="comment" value="<%= track.id %>">
+        COMMENT
+        </button>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<hr/>   
+</br>
+</br> 
+<div class="tracks">
+  <b>Your 5 Favourite Tracks</b>
+  </br>
+</br> 
+  <ul>
+    <% @favs.each do |fav| %>
+      <li>
+      	<%= fav.title %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+

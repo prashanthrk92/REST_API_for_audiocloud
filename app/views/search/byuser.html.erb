@@ -1,0 +1,10 @@
+<h1>Recent Tracks of <%= @id %></h1>
+<p>
+	<ul>
+    <% @usertracks.each do |track| %>
+      <li>
+      	<%= link_to track.title, track.permalink_url %>
+      </li>
+    <% end %>
+  </ul>
+</p>
