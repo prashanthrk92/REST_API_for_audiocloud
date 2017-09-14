@@ -1,6 +1,7 @@
+#This piece of code uses the generated access tokens for user authentication with Sound cloud, implemented using OAuth2.0
 class User < ActiveRecord::Base
   cattr_accessor :t, :b
-  SOUNDCLOUD_CLIENT_ID     = "7355a6cba0f846959340a3465be66b46"
+  SOUNDCLOUD_CLIENT_ID     = "7355a6cba0f846959340a3465be66b46" . # The client credentials grant provided by Sound Cloud
   SOUNDCLOUD_CLIENT_SECRET = "45180b9608c61f7bd65bce959801d377"
   #USER_NAME
   #PASS_WORD
